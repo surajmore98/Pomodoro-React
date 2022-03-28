@@ -222,7 +222,7 @@ button:focus {
 
 @media only screen and (max-width: 700px) {
   html {
-    font-size: 10px;
+    font-size: 62.5%;
   }
   
   .task-item-group {
