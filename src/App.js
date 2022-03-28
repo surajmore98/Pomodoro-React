@@ -1,10 +1,8 @@
-import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Task from './components/Task';
 import TaskList from './components/TaskList';
-import { useMain } from './MainProvider';
 
 function App() {
   return (

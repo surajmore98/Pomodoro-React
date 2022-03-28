@@ -7,7 +7,6 @@ const useMain = () => useContext(MainContext);
 function MainProvider({ children }) {
     const [isFormVisible, setFormVisible] = useState(false);
     const [tasks, setTasks] = useState([]);
-    const [currentTask, setCurrentTask] = useState(undefined);
     const [isEdit, setEdit] = useState(false);
     const [currentTaskId, setCurrentTaskId] = useState("");
 
