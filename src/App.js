@@ -3,10 +3,14 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Task from './components/Task';
 import TaskList from './components/TaskList';
+import { useMain } from './MainProvider';
 
 function App() {
+  const { isDarkMode } = useMain();
+  const backgroundClassName = isDarkMode ? 'bg-charcoal-black' : 'bg-charcoal-white';
+
   return (
-    <div className="App white bg-primary">
+    <div className={`App ${backgroundClassName}`}>
       <Navbar/>
       <Routes>
         <Route path="/" element= {<TaskList/>}/> 

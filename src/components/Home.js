@@ -4,7 +4,7 @@ import TaskListItem from "./TaskListItem";
 
 function Home() {
     return(
-        <div >
+        <div>
             <TaskList/>
             <TaskListItem/>
         </div>

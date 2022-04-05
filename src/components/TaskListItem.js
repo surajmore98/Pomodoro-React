@@ -5,8 +5,7 @@ function TaskListItem({task}) {
     const { id, title, isCompleted } = task;
     const { setTasks, setCurrentTaskId, setFormVisible, setEdit } = useMain();
     const navigate = useNavigate();
-
-    const taskClass = isCompleted ? 'sub-content-list-item completed' : 'sub-content-list-item';
+    const taskClass = isCompleted ? 'sub-content-list-item completed' : 'sub-content-list-item dark';
 
     function deleteHandler() {
         setTasks((tasks) => tasks.filter(task => task.id !== id));

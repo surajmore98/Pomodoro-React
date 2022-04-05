@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { useTaskReducer } from './ListReducer';
 
 const MainContext = React.createContext();
 
@@ -9,8 +10,9 @@ function MainProvider({ children }) {
     const [tasks, setTasks] = useState([]);
     const [isEdit, setEdit] = useState(false);
     const [currentTaskId, setCurrentTaskId] = useState("");
-
+    const [isDarkMode, setDarkMode] = useState(false);
     const taskList = JSON.parse(localStorage.getItem("Tasks"));
+    const [countDown, dispatch] = useTaskReducer();
 
     useEffect(() => {    
         taskList && setTasks(taskList);
@@ -21,7 +23,8 @@ function MainProvider({ children }) {
     }, [tasks]);
 
     return(
-        <MainContext.Provider value={{isFormVisible, tasks, currentTaskId, isEdit, setFormVisible, setTasks, setCurrentTaskId, setEdit}}>
+        <MainContext.Provider value={{isFormVisible, tasks, currentTaskId, isEdit, isDarkMode, countDown,
+         setFormVisible, setTasks, setCurrentTaskId, setEdit, setDarkMode, dispatch}}>
                 {children}
         </MainContext.Provider>
     );
