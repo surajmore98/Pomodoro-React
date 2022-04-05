@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useMain } from "../MainProvider";
-import { COMPLETED_TASK_FILTER, CURRENT_MONTH_FILTER, CURRENT_WEEK_FILTER, formatDateToString, PENDING_TASK_FILTER, TODAY_FILTER, getFilterTasks } from "../Utility";
+import { COMPLETED_TASK_FILTER, CURRENT_MONTH_FILTER, CURRENT_WEEK_FILTER, formatDateToString, PENDING_TASK_FILTER, TODAY_FILTER, getFilterTasks } from "../utility";
 import AddTask from "./AddTask";
 import TaskListItem from "./TaskListItem";
 

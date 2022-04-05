@@ -11,6 +11,7 @@ export const TODAY_FILTER = "Today";
 export const PENDING_TASK_FILTER = "Pending Task";
 export const COMPLETED_TASK_FILTER = "Completed Task"; 
 
+//
 export const defaultTaskValue = { id: "", title: "", description: "", duration: "", createdDate: "", isCompleted : false}
 
 // utility

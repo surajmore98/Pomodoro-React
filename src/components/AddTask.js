@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { formatDateToString, defaultTaskValue } from "../Utility";
+import { formatDateToString, defaultTaskValue } from "../utility";
 import { useMain } from "../MainProvider";
 import { v4 as uuidv4 } from 'uuid';
 
