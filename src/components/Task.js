@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { isTaskCompleted, defaultTaskValue, DOCUMENT_TITLE, PAUSE_STATUS, RESTART_STATUS, START_STATUS, formatDateToString } from "../Utility";
+import { isTaskCompleted, defaultTaskValue, DOCUMENT_TITLE, PAUSE_STATUS, RESTART_STATUS, START_STATUS, formatDateToString } from "../utility";
 import { useMain } from "../MainProvider";
 import { useNavigate, useParams } from "react-router-dom";
 
