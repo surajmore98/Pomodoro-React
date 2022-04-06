@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { currentDate, defaultTaskValue } from "../utility";
+import { formatDateToString, defaultTaskValue } from "../utility";
 import { useMain } from "../MainProvider";
 import { v4 as uuidv4 } from 'uuid';
 
@@ -8,6 +8,7 @@ function AddTask({ id }) {
 
     let currentTask = id && tasks.find(x => x.id === id);
     currentTask = currentTask ? currentTask : defaultTaskValue;
+    const currentDate = formatDateToString(new Date());
 
     const [task, setTask] = useState(currentTask);
 

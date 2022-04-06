@@ -1,43 +1,21 @@
-import { useEffect, useReducer } from "react";
-import isTaskCompleted, { currentDate, defaultTaskValue, DOCUMENT_TITLE, PAUSE_STATUS, RESTART_STATUS, START_STATUS } from "../utility";
+import { useEffect } from "react";
+import { isTaskCompleted, defaultTaskValue, DOCUMENT_TITLE, PAUSE_STATUS, RESTART_STATUS, START_STATUS, formatDateToString } from "../utility";
 import { useMain } from "../MainProvider";
 import { useNavigate, useParams } from "react-router-dom";
 
-function useTaskReducer() {
-    const initialCountDown = {
-        minutes: 0,
-        seconds: 0,
-        status: "",
-        counter: 0
-    }
-    return useReducer(function redduceFunction(countDown, action){
-        switch (action.type) {
-            case "Set Initial Duration":
-                return {...countDown, minutes: action.payload};
-            case "Decrement Minute":
-                return {...countDown, minutes: countDown.minutes - 1, seconds: 59, counter: countDown.counter + 1};
-            case "Decrement Second":
-                return {...countDown, seconds: countDown.seconds - 1, counter: countDown.counter + 1};
-            case "Reset Countdown":
-                return { ...countDown, minutes: action.payload, seconds: 0};
-            case "Status Change":
-                return { ...countDown, status: action.payload};
-            default:
-                break;
-        }
-    }, initialCountDown);
-    
-}
 
 function Task() {
-    const { tasks ,setTasks } = useMain();
+    const { tasks, setTasks, isDarkMode, countDown, dispatch } = useMain();
     const navigate = useNavigate();
     const params = useParams();
-    const [countDown, dispatch] = useTaskReducer();
-
+    
     let currentTask = tasks.find(x=> x.id === params.id); 
     currentTask = currentTask ? currentTask : defaultTaskValue;
     const duration = currentTask ? currentTask.duration : 0;
+    
+    const currentDate = formatDateToString(new Date());
+    const fontClassName = isDarkMode ? 'charcoal-white' : 'charcoal-black';
+    const backgroundClassName = isDarkMode ? 'bg-charcoal-gray' : 'bg-white';
 
     useEffect(() => {
         dispatch({type: "Set Initial Duration", payload: duration});
@@ -63,7 +41,6 @@ function Task() {
     
     useEffect(() => {
         let timer;
-        console.log(countDown.status);
         switch(countDown.status) {
             case START_STATUS:
                 timer =
@@ -102,35 +79,35 @@ function Task() {
 
     return(
         <div className="main-content">
-            <div className="sub-content bg-white charcoal-black">
-            <button className="btn white bg-info ml-auto" onClick={() => navigate("/")}>Back To List</button>
+            <div className={`sub-content ${fontClassName} ${backgroundClassName}`}>
+            <button className={`btn btn-md font-bold ${fontClassName} bg-info ml-auto`} onClick={() => navigate("/")}>Back To List</button>
                 <div className="task-item-group">
                     <div className="task-item-content">
-                        <div className="task-item-clock">
+                        <div className={`task-item-clock ${fontClassName}`}>
                             {formatTime(countDown.minutes)} : {formatTime(countDown.seconds)}
                         </div>  
                         <div className="task-divider"></div>
                         <div className="task-item-action-group">
                             <div>
-                                <button className="btn white bg-success" onClick={() => dispatch({type: "Status Change", payload: START_STATUS})}>Start</button>
-                                <button className="btn white bg-error" onClick={() => dispatch({type: "Status Change", payload: PAUSE_STATUS})}>Pause</button>
+                                <button className={`btn ${fontClassName} bg-success`} onClick={() => dispatch({type: "Status Change", payload: START_STATUS})}>Start</button>
+                                <button className={`btn ${fontClassName} bg-error`} onClick={() => dispatch({type: "Status Change", payload: PAUSE_STATUS})}>Pause</button>
                             </div>
                             <div>
-                                <button className="btn white bg-warning" onClick={() => dispatch({type: "Status Change", payload: RESTART_STATUS})}>Restart</button>
+                                <button className={`btn ${fontClassName} bg-warning`} onClick={() => dispatch({type: "Status Change", payload: RESTART_STATUS})}>Restart</button>
                             </div>
                         </div>
                     </div>
                     
-                    <div className="task-item-content">
+                    <div className={`task-item-content ${fontClassName}`}>
                         <div className="task-item-content-header">
-                            <div>{currentTask.title}</div>
+                            <div className={fontClassName}>{currentTask.title}</div>
                         </div>
                         <div className="task-divider"></div>
-                        <div className="task-item-content-detail">
+                        <div className={`task-item-content-detail ${fontClassName}`}>
                             {currentTask.description}
                         </div>
                         <div className="task-divider"></div>
-                        <div className="task-item-content-date charcoal-gray">
+                        <div className={`task-item-content-date ${fontClassName}`}>
                             Task added on: {currentTask.createdDate}
                         </div>
                     </div>

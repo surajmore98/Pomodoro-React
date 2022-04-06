@@ -1,4 +1,4 @@
-@import url("https://charcoal-ui.netlify.app/src/style/style.css");
+@import url("https://charcoalxui.netlify.app/src/style/style.css");
 
 :root {
   --primary-color: #2D27DC;
@@ -35,6 +35,7 @@ h1 , h3 {
   flex-grow: 1;
   padding: 0.5rem 3rem;
   border-radius: 0.5rem;
+  box-shadow: 0 0.25rem 0.5rem var(--charcoal-black-light);
 }
 
 .sub-content-header {
@@ -74,6 +75,10 @@ h1 , h3 {
 
 .sub-content-list-item:hover {
   background-color: var(--charcoal-white);
+}
+
+.dark:hover .title {
+  color: var(--charcoal-gray);
 }
 /* Task List Item */
 
@@ -151,7 +156,8 @@ h1 , h3 {
   border-radius: 0.25rem;
   z-index: 2;
   position: absolute;
-  left: 35%;  
+  left: 35%;
+  box-shadow: 0 0.25rem 0.5rem var(--charcoal-black-light);
 }
 
 .form {
@@ -236,4 +242,39 @@ button:focus {
     left: 25%;
     top: 25%;
   }
+}
+
+.btn-round {
+  background-color: transparent;
+}
+
+.sub-content .btn-md {
+  width: 10rem;
+}
+
+.btn:hover i{
+  font-size: 3rem;
+  transition: 0.1s;
+}
+
+.title:hover {
+  font-size: 2rem;
+  transition: 0.1s;
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.filter .btn {
+  border-radius: 0.25rem;
+  margin: 0 0.1rem;
+  font-weight: 700;
+}
+
+.filter .active {
+  background-color: var(--primary-color);
 }
