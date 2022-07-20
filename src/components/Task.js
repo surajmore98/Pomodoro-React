@@ -15,7 +15,7 @@ function Task() {
     
     const currentDate = formatDateToString(new Date());
     const fontClassName = isDarkMode ? 'charcoal-white' : 'charcoal-black';
-    const backgroundClassName = isDarkMode ? 'bg-charcoal-gray' : 'bg-white';
+    const backgroundClassName = isDarkMode ? 'bg-charcoal-black' : 'bg-white';
 
     useEffect(() => {
         dispatch({type: "Set Initial Duration", payload: duration});
@@ -79,8 +79,7 @@ function Task() {
 
     return(
         <div className="main-content">
-            <div className={`sub-content ${fontClassName} ${backgroundClassName}`}>
-            <button className={`btn btn-md font-bold ${fontClassName} bg-info ml-auto`} onClick={() => navigate("/")}>Back To List</button>
+            <div className={`sub-content ${fontClassName} ${backgroundClassName}`}>            
                 <div className="task-item-group">
                     <div className="task-item-content">
                         <div className={`task-item-clock ${fontClassName}`}>

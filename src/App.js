@@ -7,7 +7,7 @@ import { useMain } from './MainProvider';
 
 function App() {
   const { isDarkMode } = useMain();
-  const backgroundClassName = isDarkMode ? 'bg-charcoal-black' : 'bg-charcoal-white';
+  const backgroundClassName = isDarkMode ? 'bg-charcoal-gray' : 'bg-charcoal-white';
 
   return (
     <div className={`App ${backgroundClassName}`}>

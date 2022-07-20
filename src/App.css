@@ -67,7 +67,7 @@ h1 , h3 {
 .sub-content-list-item .title {
   display: flex;
   flex-grow: 1;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: 2px;
@@ -90,10 +90,19 @@ h1 , h3 {
 
 .task-item-clock {
   font-weight: 900;
-  margin: 4rem;
-  font-size: 4rem;
+  font-size: 3rem;
+  padding: 4rem 2rem;
+  padding-top: 5.5rem;
   align-self: center;
   text-align: center;
+  border: 2px solid var(--charcoal-gray);
+  height: 4.5rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+
+.dark .task-item-clock {
+  border: 2px solid var(--white);
 }
 
 .task-item-content {
@@ -119,7 +128,7 @@ h1 , h3 {
   font-weight: 500;
   overflow-y: auto;
   padding: 0.25rem;
-  height: 7rem;
+  height: 8.55rem;
 }
 
 .task-item-content-date {
@@ -258,7 +267,7 @@ button:focus {
 }
 
 .title:hover {
-  font-size: 2rem;
+  font-size: 1.5rem;
   transition: 0.1s;
 }
 
@@ -276,5 +285,10 @@ button:focus {
 }
 
 .filter .active {
+  color: var(--white);
   background-color: var(--primary-color);
+}
+
+.nav-action-group {
+  display: flex;
 }

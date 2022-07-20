@@ -23,7 +23,7 @@ function TaskList() {
     }
     
     const fontClassName = isDarkMode ? 'charcoal-white' : 'charcoal-black';
-    const backgroundClassName = isDarkMode ? 'bg-charcoal-gray' : 'bg-white';
+    const backgroundClassName = isDarkMode ? 'bg-charcoal-black' : 'bg-white';
 
     return(
         <div className="main-content">
@@ -33,27 +33,27 @@ function TaskList() {
             </div>
             <div className="filter">
                 <button 
-                    className={`btn btn-outline ${fontClassName} ${backgroundClassName} ${isActive(TODAY_FILTER)}`} 
+                    className={`btn white bg-charcoal-black ${isActive(TODAY_FILTER)}`} 
                     onClick={() => filterClickHandler(TODAY_FILTER)}>
                         Today
                 </button>
                 <button 
-                    className={`btn btn-outline ${fontClassName} ${backgroundClassName} ${isActive(CURRENT_WEEK_FILTER)}`} 
+                    className={`btn white bg-charcoal-black ${isActive(CURRENT_WEEK_FILTER)}`} 
                     onClick={() => filterClickHandler(CURRENT_WEEK_FILTER)}>
                         Week
                 </button>
                 <button 
-                    className={`btn btn-outline ${fontClassName} ${backgroundClassName} ${isActive(CURRENT_MONTH_FILTER)}`} 
+                    className={`btn white bg-charcoal-black ${isActive(CURRENT_MONTH_FILTER)}`} 
                     onClick={() => filterClickHandler(CURRENT_MONTH_FILTER)}>
                         Month
                 </button>
                 <button 
-                    className={`btn btn-outline ${fontClassName} ${backgroundClassName} ${isActive(COMPLETED_TASK_FILTER)}`} 
+                    className={`btn white bg-charcoal-black ${isActive(COMPLETED_TASK_FILTER)}`} 
                     onClick={() => filterClickHandler(COMPLETED_TASK_FILTER)}>
                         Completed
                 </button>
                 <button 
-                    className={`btn btn-outline ${fontClassName} ${backgroundClassName} ${isActive(PENDING_TASK_FILTER)}`} 
+                    className={`btn white bg-charcoal-black ${isActive(PENDING_TASK_FILTER)}`} 
                     onClick={() => filterClickHandler(PENDING_TASK_FILTER)}>
                         Pending
                 </button>
@@ -61,7 +61,7 @@ function TaskList() {
             <div className={`sub-content ${fontClassName} ${backgroundClassName}`}>
                 <div className="sub-content-header">
                     <h2>To - Do List</h2>
-                    <button className={`btn btn-md bg-primary font-bold ${fontClassName}`} onClick={addClickHandler}>
+                    <button className={`btn btn-md bg-primary font-bold white`} onClick={addClickHandler}>
                         Add
                     </button>
                 </div>
