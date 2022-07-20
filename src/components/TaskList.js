@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMain } from "../MainProvider";
-import { COMPLETED_TASK_FILTER, CURRENT_MONTH_FILTER, CURRENT_WEEK_FILTER, formatDateToString, PENDING_TASK_FILTER, TODAY_FILTER, getFilterTasks } from "../utility";
+import { COMPLETED_TASK_FILTER, CURRENT_MONTH_FILTER, CURRENT_WEEK_FILTER, formatDateToString, PENDING_TASK_FILTER, TODAY_FILTER, getFilterTasks, DOCUMENT_TITLE } from "../utility";
 import AddTask from "./AddTask";
 import TaskListItem from "./TaskListItem";
 
@@ -24,6 +24,10 @@ function TaskList() {
     
     const fontClassName = isDarkMode ? 'charcoal-white' : 'charcoal-black';
     const backgroundClassName = isDarkMode ? 'bg-charcoal-black' : 'bg-white';
+
+    useEffect(() => {
+        document.title = DOCUMENT_TITLE;
+    }, []);
 
     return(
         <div className="main-content">
